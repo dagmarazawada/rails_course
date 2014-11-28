@@ -1,0 +1,9 @@
+server start folder web www share mac
+in bash go to folder 
+cd _webdesign/server/
+
+and start server:
+
+python -m SimpleHTTPServer 8000
+
+localhost:8000/ :)
