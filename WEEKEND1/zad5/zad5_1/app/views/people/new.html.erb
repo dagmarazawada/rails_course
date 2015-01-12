@@ -1,0 +1,11 @@
+<h1>People#new</h1>
+<p>Find me in app/views/people/new.html.erb</p>
+
+<%= form_tag(people_add_path, method: :get) do%>
+<%= label_tag :name, "name: "%>
+<%= text_field_tag :name %>
+<%= label_tag :surname, "surname:" %>
+<%= text_field_tag :surname %>
+<%= submit_tag "Prześlij"%>
+
+<%end%>

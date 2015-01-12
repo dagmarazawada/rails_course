@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zad8</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if user_signed_in? %>
+  <p>User Signed in as: <%= current_user.email %> </p> 
+  <p><%= link_to "logoff", destroy_user_session_path, method: :delete %> </p> 
+    <p> <% link_to "Nowy post", new_post_path %></p>
+
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> | 
+    <%= link_to "Log in", new_user_session_path %> 
+  <% end %>
+
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+<% if @products.present? %>
+
+<% @products.each do |p|%>
+<h1> <%= p.name %> </h1>
+<h2> <%= p.description %></h2>
+<%end%>
+<% else %>
+<h1> Nie znaleziono elementu</h1>
+<%end%>

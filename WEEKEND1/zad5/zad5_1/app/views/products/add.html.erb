@@ -1,0 +1,8 @@
+<%= form_tag(products_choice_path, method: :get) do %>
+<%= label_tag(:name, "Name: ") %>
+<%= text_field_tag(:name) %>
+<%= label_tag(:language, "Language: ") %>
+<%= select_tag "language", "<option>Polish</option><option>English</option>".html_safe %>
+<%= submit_tag("Prześlij") %>
+
+<% end %>

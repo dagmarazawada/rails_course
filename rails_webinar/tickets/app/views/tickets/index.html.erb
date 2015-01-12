@@ -1,0 +1,41 @@
+<center>
+<h1>Appka - lista biletów</h1>
+<h1> in Ruby on Rails </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Sead id seq</th>
+      <th>Address</th>
+      <th>Price paid</th>
+      <th>Email address</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.name %></td>
+        <td><%= ticket.sead_id_seq %></td>
+        <td><%= ticket.address %></td>
+        <td><%= ticket.price_paid %></td>
+        <td><%= ticket.email_address %></td>
+        <td><%= ticket.phone %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nowy Ticket', new_ticket_path %>
+<br>
+<img src = "http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/256/Weather-Clouds-icon.png" />
+<br>
+<img src = "http://mara.kgb.pl/dagmara/images/dz.jpg" 

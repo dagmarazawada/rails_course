@@ -1,0 +1,15 @@
+<%= form_tag('/welcome/show') do |f|%>
+
+<p>Imię:<%= text_field_tag :name%></p>
+
+<p>Nazwisko:<%= text_field_tag :surname%></p>
+
+<p>Płeć <%= select_tag(:sex, options_for_select([['Kobieta', "Kobieta"], ['Mężczyzna', "Mężczyzna"]], "Kobieta")) %>
+
+<p>Ile korzystasz z komputera <%= select_tag(:computer_time, options_for_select([['poniżej 1h dziennie', "poniżej 1h dziennie"], ['1 - 4 h dziennie', "1 - 4 h dziennie"], ['4 - 8 h dziennie', "4 - 8 h dziennie"], ['powyżej 8 h dziennie', "powyżej 8 h dziennie"]], "poniżej 1h dziennie")) %>
+
+<p>Wiek:<%= number_field_tag :age %></p>
+
+<%= submit_tag "Prześlij"%>
+
+<%end%>

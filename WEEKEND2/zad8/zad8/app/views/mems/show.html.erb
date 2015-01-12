@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mem.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @mem.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @mem.image.url(:medium) %>
+</p>
+
+<%= link_to 'Medium', medium_mem_path %> |
+
+<%= link_to 'Edit', edit_mem_path(@mem) %> |
+<%= link_to 'Back', mems_path %>

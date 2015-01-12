@@ -1,0 +1,9 @@
+<%= form_tag(products_search_results_path, method: :get) do %>
+
+<%= label_tag(:search, "search for: ")%>
+
+<%= text_field_tag(:name)%>
+
+<%= submit_tag "Prześlij"%>
+
+<%end%>

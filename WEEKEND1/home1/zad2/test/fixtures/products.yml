@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ean: MyString
+  name: MyString
+  description: MyString
+  active: false
+  published: MyString
+
+two:
+  ean: MyString
+  name: MyString
+  description: MyString
+  active: false
+  published: MyString
