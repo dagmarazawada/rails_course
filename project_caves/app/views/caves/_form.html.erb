@@ -1,0 +1,101 @@
+<%= form_for @cave, :html => { :class => "form-horizontal cave" } do |f| %>
+
+    <% if @cave.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@cave.errors.count, "error") %> prohibited this cave from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @cave.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :inventory_no, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :inventory_no, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:inventory_no]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :length, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :length, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:length]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :depth, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :depth, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:depth]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :denivelation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :denivelation, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:denivelation]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :genesis, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :genesis, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:genesis]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :inventory_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :inventory_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:inventory_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :x_1992, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :x_1992, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:x_1992]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :y_1992, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :y_1992, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:y_1992]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :lat, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :lat, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:lat]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :lon, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :lon, :class => 'form-control' %>
+    </div>
+    <%= error_span(@cave[:lon]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            caves_path, :class => 'btn btn-default' %>
+
+<% end %>

@@ -1,0 +1,69 @@
+<%- model_class = Cave -%>
+
+<div id ="section_map"><p class="justify"><strong>Welcome!</strong> This app shows selected caves in Poland aquired from <%= link_to 'PGI NRI', 'http://www.pgi.gov.pl/' %> database. App was created in <%= link_to 'Ruby on Rails', 'http://rubyonrails.org/'%> & <%= link_to 'Leaflet JS', 'http://leafletjs.com/'%>. Registered users are eligible for commiting changes (editing details, deleting and adding new locations). Table can be sorted and searched for records to be displayed on map. For notices, guidance etc. please feel free to <%= mail_to 'dagmara.223@gmail.com', 'e-mail'%> me.</p></div>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %> Map</h1>
+
+<%= image_tag "sort_asc.png" %>
+
+
+<div id="map" style="height: 360px"></div>
+
+<div id ="section_table"></div>
+<h1>Caves List</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:inventory_id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:inventory_no) %></th>
+      <th><%= model_class.human_attribute_name(:length) %></th>
+      <th><%= model_class.human_attribute_name(:depth) %></th>
+      <th><%= model_class.human_attribute_name(:denivelation) %></th>
+      <th><%= model_class.human_attribute_name(:genesis) %></th>
+      <th><%= model_class.human_attribute_name(:lat) %></th>
+      <th><%= model_class.human_attribute_name(:lon) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caves.each do |cave| %>
+
+    <%= content_tag :tr, class: "cave", data: {latitude: (lat=cave.lat), longitude: (lon=cave.lon), name: cave.name} do %>
+        <td><%= cave.inventory_id %></td>
+        <td><%= cave.name %></td>
+        <td><%= cave.inventory_no %></td>
+        <td><%= cave.length %></td>
+        <td><%= cave.depth %></td>
+        <td><%= cave.denivelation %></td>
+        <td><%= cave.genesis %></td>
+        <td><%= cave.lat %></td>
+        <td><%= cave.lon %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      cafe_path(cave), :class => 'btn btn-primary btn-xs' %>
+          <% if user_signed_in? %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_cafe_path(cave), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      cafe_path(cave),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+          <% end %>
+        </td>
+      <% end -%>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in? %>
+<%= link_to t('.new', :default => t("+ New cave")),
+            new_cafe_path,
+            :class => 'btn btn-primary' %>
+<% end %>
+<br>
+<br>
+
