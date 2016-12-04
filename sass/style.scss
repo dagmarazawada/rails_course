@@ -1,0 +1,22 @@
+@mixin inline-block {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+}
+
+$fontSmall: 6px;
+
+.foo {
+	&.center {
+	text-align: center;
+	}
+
+font-size: $fontSmall;
+
+}
+
+.bar {
+	@include inline-block;
+}
+
